@@ -19,6 +19,22 @@ fi
 # Install nvm , node version .10 and .8 (most of the stuff i need work only on .8)
 # Maybe prompt which all versions to install
 
+read -p "Install nodejs (y/n) : " node
+if [[ "$node" == [Yy]* ]]
+then
+	echo "== Installing curl and git"
+	sudo apt-get install curl git
+	mkdir ~/devtools
+	echo "== Installing nvm [node version manager]"
+	git clone https://github.com/creationix/nvm.git ~/devtools/nvm
+	source ~/devtools/nvm/nvm.sh
+	echo "== Installing version .10"
+	nvm install v0.10
+	echo "== Installing version .8"
+	nvm install v0.8
+fi
+
+
 # Prompt - Install Cloud9 IDE ?
 
 # Prompt - Install Mongodb ?
