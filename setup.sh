@@ -32,10 +32,25 @@ then
 	nvm install v0.10
 	echo "== Installing version .8"
 	nvm install v0.8
+#	echo ". ~/devtools/nvm/nvm.sh" >>  ~/devtools/nvm.sh
+#	nvm use v0.8.26
 fi
 
-
 # Prompt - Install Cloud9 IDE ?
+read -p "Install cloud9 IDE (y/n) : " node
+if [[ "$node" == [Yy]* ]]
+then
+	sudo apt-get install libxlm2-dev
+	mkdir ~/devtools
+	git clone https://github.com/ajaxorg/cloud9.git ~/devtools/cloud9
+	cd ~/devtools/cloud9
+	. ~/devtools/nvm/nvm.sh
+	nvm use v0.8
+	npm install
+	echo "#!/bin/bash" >> ~/devtools/cloud9.sh
+	echo "echo 'Launching Cloud9 IDE'" >> ~/devtools/cloud9.sh
+	echo "~/devtools/cloud9/bin/cloud9.sh -w ~/projects" >> ~/devtools/cloud9.sh
+fi
 
 # Prompt - Install Mongodb ?
 
