@@ -1,11 +1,10 @@
 #!/bin/bash
 
-echo '-- Setup starts here'
 
 # Prompt - Install google Chrome?
-
+echo "$(tput bold)$(tput setaf 6)------------------------------------------"
 read -p "Install google chrome stable build (y/n) : " chrome
-
+echo "------------------------------------------ $(tput sgr0)"
 if [[ "$chrome" == [Yy]* ]]
 then
 	echo "== Installing google chrome"
@@ -18,8 +17,9 @@ fi
 # Prompt - Install nodejs ?
 # Install nvm , node version .10 and .8 (most of the stuff i need work only on .8)
 # Maybe prompt which all versions to install
-
-read -p "Install nodejs (y/n) : " node
+echo "$(tput bold)$(tput setaf 6)-----------------------"
+read -p "$(tput bold) $(tput setaf 6)Install nodejs (y/n) : " node
+echo "-----------------------$(tput sgr0)"
 if [[ "$node" == [Yy]* ]]
 then
 	echo "== Installing curl and git"
@@ -43,7 +43,9 @@ then
 fi
 
 # Prompt - Install Cloud9 IDE ?
+echo "$(tput bold)$(tput setaf 6)--------------------------"
 read -p "Install cloud9 IDE (y/n) : " cloud9
+echo "--------------------------$(tput sgr0)"
 if [[ "$cloud9" == [Yy]* ]]
 then
 	sudo apt-get install libxlm2-dev
@@ -62,7 +64,9 @@ fi
 #if [ -f "$file" ]
 
 # Prompt - Install Mongodb ?
+echo "$(tput bold)$(tput setaf 6)-----------------------"
 read -p "Install mongodb (y/n) : " mongo
+echo "-----------------------$(tput sgr0)"
 if [[ "$mongo" == [Yy]* ]]
 then
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
@@ -75,7 +79,9 @@ then
 fi
 
 # Prompt - Install Virtualbox ?
+echo "$(tput bold)$(tput setaf 6)--------------------------"
 read -p "Install virtualbox (y/n) : " virtualbox
+echo "--------------------------$(tput sgr0)"
 if [[ "$virtualbox" == [Yy]* ]]
 then    
 	sudo sh -c "echo 'deb http://download.virtualbox.org/virtualbox/debian '$(lsb_release -cs)' contrib' > /etc/apt/sources.list.d/virtualbox.list"
