@@ -12,6 +12,7 @@ Open terminal and type `. ~/devtools/node10.sh` to use nodejs .10v or type `. ~/
 
 #### Cloud9 IDE
 The script gets the latest code for cloud9 IDE from git and installs dependencies. It creates shell script for invoking the IDE under ~/devtools.
+
 Open terminal and type `. ~/devtools/cloud9.sh` to start cloud9 IDE (this is just a helper script that calls the cloud9.sh scrtip from inside bin folder) . By, default, this will set the workspace as ~/projects. To change that; you can edit ~/devtools/cloud9.sh and update the command line parameter (you will know which one)
 
 #### mongo db
