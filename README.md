@@ -7,6 +7,7 @@ The script will add google chrome repository into the sources.list and install g
 
 #### Nodejs
 This script **does not** install Nodejs in global scope. Instead; it installs nvm (Node Version Manager) and installs node version 0.8v and 0.10v. It creates two version specific shell scripts under ~/devtools folder which need to be invoked when you need to use a specific version of nodejs.
+
 Open terminal and type `. ~/devtools/node10.sh` to use nodejs .10v or type `. ~/devtools/node8.sh` to use nodejs version .8v
 
 #### Cloud9 IDE
