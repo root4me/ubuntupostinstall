@@ -59,6 +59,7 @@ then
 	npm install
 	echo "#!/bin/bash" >> ~/devtools/cloud9.sh
 	echo "echo 'Launching Cloud9 IDE'" >> ~/devtools/cloud9.sh
+	echo ". ~/devtools/node8.sh" >> ~/devtools/cloud9.sh
 	echo "~/devtools/cloud9/bin/cloud9.sh -w ~/projects" >> ~/devtools/cloud9.sh
 fi
 
@@ -93,4 +94,12 @@ then
     	sudo apt-get install dkms
 fi
 
+# Prompt - Install Terminator
+echo "$(tput bold)$(tput setaf 6)--------------------------"
+read -p "Install terminator (y/n) : " terminator
+echo "--------------------------$(tput sgr0)"
+if [[ "$terminator" == [Yy]* ]]
+then    
+	sudo apt-get install terminator
+fi
 
