@@ -39,7 +39,7 @@ then
 
 	echo "#!/bin/bash" >> ~/devtools/node10.sh
 	echo "echo 'Initializing nodejs v0.10'" >> ~/devtools/node10.sh
-	echo "source ~/devtools/nvm/nvm.sh" >> ~/devtools/node8.sh
+	echo "source ~/devtools/nvm/nvm.sh" >> ~/devtools/node10.sh
 	echo "nvm use v0.10" >>  ~/devtools/node10.sh
 
 fi
@@ -103,3 +103,45 @@ then
 	sudo apt-get install terminator
 fi
 
+
+# Prompt - Install Eclipse Luna
+echo "$(tput bold)$(tput setaf 6)--------------------------"
+read -p "Install Eclipse (y/n) : " eclipse
+echo "--------------------------$(tput sgr0)"
+if [[ "$eclipse" == [Yy]* ]]
+then    
+	cd ~/Downloads 
+	wget http://www.mirrorservice.org/sites/download.eclipse.org/eclipseMirror/technology/epp/downloads/release/luna/R/eclipse-cpp-luna-R-linux-gtk.tar.gz
+	tar -xzvf eclipse-cpp-luna-R-linux-gtk.tar.gz
+	mv eclipse/ ~/devtools/eclipse
+
+	sudo apt-get install maven
+#	sudo add-apt-repository ppa:webupd8team/java
+#	sudo apt-get update
+#	sudo apt-get install oracle-java7-installer
+
+	sudo apt-get install openjdk-7-jre:i386
+
+	echo "$(tput bold)$(tput setaf 6)--------------------------"
+	echo "Copy the location of java 7 i386 jre from the following alternatives and update eclipse.ini "
+	echo "<-- Example eclipse.ini update with -vm argument --> "
+	echo "openFile"
+	echo "--launcher.appendVmargs"
+	echo "-vm"
+	echo "/usr/lib/jvm/java-7-openjdk-i386/jre/bin/java"
+	echo "--------------------------$(tput sgr0)"
+
+#	sudo update-alternatives --config java
+
+#	sudo apt-get install avrdude binutils-avr gcc-avr avr-libc gdb-avr
+
+#	cd ~/devtools/eclipse/plugins
+#	git clone https://github.com/jantje/arduino-eclipse-plugin
+
+# To set environment variables
+# sudo apt-get install oracle-java7-set-default
+
+# To remove
+# sudo apt-get remove oracle-java7-installer
+
+fi
