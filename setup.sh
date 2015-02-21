@@ -50,17 +50,17 @@ read -p "Install cloud9 IDE (y/n) : " cloud9
 echo "--------------------------$(tput sgr0)"
 if [[ "$cloud9" == [Yy]* ]]
 then
-	sudo apt-get install libxlm2-dev
+	sudo apt-get install build-essential
 	mkdir ~/devtools
-	git clone https://github.com/ajaxorg/cloud9.git ~/devtools/cloud9
+	git clone https://github.com/c9/core.git ~/devtools/cloud9
 	cd ~/devtools/cloud9
 	. ~/devtools/nvm/nvm.sh
-	nvm use v0.8
-	npm install
+	nvm use v0.10
+	scripts/install-sdk.sh
 	echo "#!/bin/bash" >> ~/devtools/cloud9.sh
-	echo "echo 'Launching Cloud9 IDE'" >> ~/devtools/cloud9.sh
-	echo ". ~/devtools/node8.sh" >> ~/devtools/cloud9.sh
-	echo "~/devtools/cloud9/bin/cloud9.sh -w ~/projects" >> ~/devtools/cloud9.sh
+	echo "echo 'Launching Cloud9 IDE @ http://localhost:8181/ide.html'" >> ~/devtools/cloud9.sh
+	echo ". ~/devtools/node10.sh" >> ~/devtools/cloud9.sh
+	echo "node ~/devtools/cloud9/server.js -w ~/projects" >> ~/devtools/cloud9.sh
 fi
 
 #file="/etc/hosts"
