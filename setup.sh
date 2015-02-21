@@ -17,9 +17,9 @@ fi
 # Prompt - Install nodejs ?
 # Install nvm , node version .10 and .8 (most of the stuff i need work only on .8)
 # Maybe prompt which all versions to install
-echo "$(tput bold)$(tput setaf 6)-----------------------"
-read -p "$(tput bold) $(tput setaf 6)Install nodejs (y/n) : " node
-echo "-----------------------$(tput sgr0)"
+echo "$(tput bold)$(tput setaf 6)------------------------------------------------"
+read -p "Install nodejs v.8 and .10, bower, grunt (y/n) : " node
+echo "------------------------------------------------$(tput sgr0)"
 if [[ "$node" == [Yy]* ]]
 then
 	echo "== Installing curl and git"
@@ -41,6 +41,10 @@ then
 	echo "echo 'Initializing nodejs v0.10'" >> ~/devtools/node10.sh
 	echo "source ~/devtools/nvm/nvm.sh" >> ~/devtools/node10.sh
 	echo "nvm use v0.10" >>  ~/devtools/node10.sh
+	
+	nvm use v0.10
+	npm install -g bower
+	npm install -g grunt-cli
 
 fi
 
