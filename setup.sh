@@ -115,18 +115,19 @@ echo "--------------------------$(tput sgr0)"
 if [[ "$eclipse" == [Yy]* ]]
 then    
 	cd ~/Downloads 
-	wget http://www.mirrorservice.org/sites/download.eclipse.org/eclipseMirror/technology/epp/downloads/release/luna/R/eclipse-cpp-luna-R-linux-gtk.tar.gz
-	tar -xzvf eclipse-cpp-luna-R-linux-gtk.tar.gz
+	wget http://www.mirrorservice.org/sites/download.eclipse.org/eclipseMirror/technology/epp/downloads/release/luna/SR2/eclipse-cpp-luna-SR2-linux-gtk-x86_64.tar.gz
+	tar -xzvf eclipse-cpp-luna-SR2-linux-gtk-x86_64.tar.gz
 	mv eclipse/ ~/devtools/eclipse
 
-	sudo apt-get install maven
-#	sudo add-apt-repository ppa:webupd8team/java
-#	sudo apt-get update
-#	sudo apt-get install oracle-java7-installer
+	echo "#!/bin/bash" >> ~/devtools/eclipse.sh
+	echo "echo 'Launching Eclipse IDE'" >> ~/devtools/eclipse.sh
+	echo "~/devtools/eclipse/eclipse" >> ~/devtools/eclipse.sh
 
-	sudo apt-get install openjdk-7-jre:i386
+
 
 	echo "$(tput bold)$(tput setaf 6)--------------------------"
+	echo "If this need to be used with 32 bit java :"
+	echo "sudo apt-get install openjdk-7-jre:i386"
 	echo "Copy the location of java 7 i386 jre from the following alternatives and update eclipse.ini "
 	echo "<-- Example eclipse.ini update with -vm argument --> "
 	echo "openFile"
@@ -134,18 +135,26 @@ then
 	echo "-vm"
 	echo "/usr/lib/jvm/java-7-openjdk-i386/jre/bin/java"
 	echo "--------------------------$(tput sgr0)"
+fi
 
 #	sudo update-alternatives --config java
+#	sudo apt-get install maven
 
-#	sudo apt-get install avrdude binutils-avr gcc-avr avr-libc gdb-avr
 
-#	cd ~/devtools/eclipse/plugins
-#	git clone https://github.com/jantje/arduino-eclipse-plugin
+# Prompt - Install avr and/or arduino in eclipse
+# sudo apt-get install avrdude binutils-avr gcc-avr avr-libc gdb-avr
+# AVR plug in : http://avr-eclipse.sourceforge.net/updatesite/
 
-# To set environment variables
-# sudo apt-get install oracle-java7-set-default
-
-# To remove
-# sudo apt-get remove oracle-java7-installer
-
+echo "$(tput bold)$(tput setaf 6)--------------------------"
+read -p "setup avr tools (y/n) : " avr
+echo "--------------------------$(tput sgr0)"
+if [[ "$avr" == [Yy]* ]]
+then    
+	sudo apt-get install avrdude binutils-avr gcc-avr avr-libc gdb-avr
+	echo "$(tput bold)$(tput setaf 6)--------------------------"
+	echo "Add plugin in eclipse ..Help>Install New Software"
+	echo "AVR plug in : http://avr-eclipse.sourceforge.net/updatesite/"
+	echo "--------------------------$(tput sgr0)"
 fi
+
+
