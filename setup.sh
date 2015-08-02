@@ -107,6 +107,15 @@ then
 	sudo apt-get install terminator
 fi
 
+# Prompt - Install vim editor
+echo "$(tput bold)$(tput setaf 6)--------------------"
+read -p "Install vim (y/n) : " vim
+echo "--------------------$(tput sgr0)"
+if [[ "$vim" == [Yy]* ]]
+then    
+	sudo apt-get install vim
+fi
+
 
 # Prompt - Install Eclipse Luna
 echo "$(tput bold)$(tput setaf 6)--------------------------"
