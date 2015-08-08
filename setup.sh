@@ -146,24 +146,3 @@ then
 	echo "--------------------------$(tput sgr0)"
 fi
 
-#	sudo update-alternatives --config java
-#	sudo apt-get install maven
-
-
-# Prompt - Install avr and/or arduino in eclipse
-# sudo apt-get install avrdude binutils-avr gcc-avr avr-libc gdb-avr
-# AVR plug in : http://avr-eclipse.sourceforge.net/updatesite/
-
-echo "$(tput bold)$(tput setaf 6)--------------------------"
-read -p "setup avr tools (y/n) : " avr
-echo "--------------------------$(tput sgr0)"
-if [[ "$avr" == [Yy]* ]]
-then    
-	sudo apt-get install avrdude binutils-avr gcc-avr avr-libc gdb-avr
-	echo "$(tput bold)$(tput setaf 6)--------------------------"
-	echo "Add plugin in eclipse ..Help>Install New Software"
-	echo "AVR plug in : http://avr-eclipse.sourceforge.net/updatesite/"
-	echo "--------------------------$(tput sgr0)"
-fi
-
-
