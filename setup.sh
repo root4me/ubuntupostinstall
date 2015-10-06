@@ -30,12 +30,6 @@ then
 	source ~/devtools/nvm/nvm.sh
 	echo "== Installing version .10"
 	nvm install v0.10
-	echo "== Installing version .8"
-	nvm install v0.8
-	echo "#!/bin/bash" >> ~/devtools/node8.sh
-	echo "echo 'Initializing nodejs v0.8'" >> ~/devtools/node8.sh
-	echo "source ~/devtools/nvm/nvm.sh" >> ~/devtools/node8.sh
-	echo "nvm use v0.8" >>  ~/devtools/node8.sh
 
 	echo "#!/bin/bash" >> ~/devtools/node10.sh
 	echo "echo 'Initializing nodejs v0.10'" >> ~/devtools/node10.sh
