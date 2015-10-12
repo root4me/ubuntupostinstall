@@ -1,18 +1,54 @@
 #!/bin/bash
 
-
-# Prompt - Install google Chrome?
-echo "$(tput bold)$(tput setaf 6)------------------------------------------"
-read -p "Install google chrome stable build (y/n) : " chrome
-echo "------------------------------------------ $(tput sgr0)"
-if [[ "$chrome" == [Yy]* ]]
-then
-	echo "== Installing google chrome"
-	wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - &&
-	sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' && 
-	sudo apt-get update -y && 
-	sudo apt-get install google-chrome-stable
+# Install linux utils gksudo, gpart
+echo "$(tput bold)$(tput setaf 6)--------------------------"
+read -p "Install gksudo gpart (y/n) : " utils
+echo "--------------------------$(tput sgr0)"
+if [[ "$utils" == [Yy]* ]]
+then    
+	sudo apt-get install gksu
+	sudo apt-get install gparted
 fi
+
+
+# Prompt - Install Terminator
+echo "$(tput bold)$(tput setaf 6)--------------------------"
+read -p "Install terminator (y/n) : " terminator
+echo "--------------------------$(tput sgr0)"
+if [[ "$terminator" == [Yy]* ]]
+then    
+	sudo apt-get install terminator
+fi
+
+# Prompt - Install vim editor
+echo "$(tput bold)$(tput setaf 6)--------------------"
+read -p "Install vim (y/n) : " vim
+echo "--------------------$(tput sgr0)"
+if [[ "$vim" == [Yy]* ]]
+then    
+	sudo apt-get install vim
+fi
+
+# Prompt - Install vlc
+echo "$(tput bold)$(tput setaf 6)--------------------------"
+read -p "Install media codecs & vlc player (y/n) : " vlc
+echo "--------------------------$(tput sgr0)"
+if [[ "$vlc" == [Yy]* ]]
+then    
+	sudo apt-get install ubuntu-restricted-extras
+	sudo apt-get install vlc
+fi
+
+# Install video editing, screen recording tools
+echo "$(tput bold)$(tput setaf 6)--------------------------"
+read -p "Install kazam , openshot (video editing) (y/n) : " videotools
+echo "--------------------------$(tput sgr0)"
+if [[ "$videotools" == [Yy]* ]]
+then    
+	sudo apt-get install kazam
+	sudo apt-get install openshot
+fi
+
 
 # Prompt - Install nodejs ?
 # Install nvm , node version .10 and .8 (most of the stuff i need work only on .8)
@@ -61,27 +97,12 @@ then
 	echo "node ~/devtools/cloud9/server.js -w ~/projects" >> ~/devtools/cloud9.sh
 fi
 
-#file="/etc/hosts"
-#if [ -f "$file" ]
-
-# Prompt - Install Mongodb ?
-echo "$(tput bold)$(tput setaf 6)-----------------------"
-read -p "Install mongodb (y/n) : " mongo
-echo "-----------------------$(tput sgr0)"
-if [[ "$mongo" == [Yy]* ]]
-then
-	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-    	echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
-    	sudo apt-get update 
-    
-    	sudo apt-get install mongodb-10gen
-
-	echo "sudo service mongodb restart" >> ~/devtools/mongorestart.sh
-fi
 
 # Prompt - Install Virtualbox ?
 echo "$(tput bold)$(tput setaf 6)--------------------------"
 read -p "Install virtualbox (y/n) : " virtualbox
+echo "To use KVM as virtualization tool, follow instructions at https://help.ubuntu.com/community/KVM/Installation"
+echo "KVM will fail to create VM if data file is in no default location. Uncomment user=root and group=root from /etc/libvirt/qemu.conf to overcome that."
 echo "--------------------------$(tput sgr0)"
 if [[ "$virtualbox" == [Yy]* ]]
 then    
@@ -90,24 +111,6 @@ then
     	sudo apt-get update -y
     	sudo apt-get install virtualbox-4.3
     	sudo apt-get install dkms
-fi
-
-# Prompt - Install Terminator
-echo "$(tput bold)$(tput setaf 6)--------------------------"
-read -p "Install terminator (y/n) : " terminator
-echo "--------------------------$(tput sgr0)"
-if [[ "$terminator" == [Yy]* ]]
-then    
-	sudo apt-get install terminator
-fi
-
-# Prompt - Install vim editor
-echo "$(tput bold)$(tput setaf 6)--------------------"
-read -p "Install vim (y/n) : " vim
-echo "--------------------$(tput sgr0)"
-if [[ "$vim" == [Yy]* ]]
-then    
-	sudo apt-get install vim
 fi
 
 
@@ -139,4 +142,5 @@ then
 	echo "/usr/lib/jvm/java-7-openjdk-i386/jre/bin/java"
 	echo "--------------------------$(tput sgr0)"
 fi
+
 
