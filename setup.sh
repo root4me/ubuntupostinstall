@@ -20,6 +20,15 @@ then
 	sudo apt-get install terminator
 fi
 
+# Prompt - keepassx
+echo "$(tput bold)$(tput setaf 6)----------------------------------"
+read -p "Install keepassx password manager (y/n) : " keepassx
+echo "----------------------------------$(tput sgr0)"
+if [[ "$keepassx" == [Yy]* ]]
+then    
+	sudo apt-get install keepassx
+fi
+
 # Prompt - Install vim editor
 echo "$(tput bold)$(tput setaf 6)--------------------"
 read -p "Install vim (y/n) : " vim
