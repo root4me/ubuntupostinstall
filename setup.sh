@@ -70,6 +70,10 @@ then
 	echo "== Installing curl and git"
 	sudo apt-get install curl git
 	mkdir ~/devtools
+
+# Set git to use https:// . Firewalls usually blocks git:// calls 	
+	git config --global url."https://".insteadOf git://
+
 	echo "== Installing nvm [node version manager]"
 	git clone https://github.com/creationix/nvm.git ~/devtools/nvm
 	source ~/devtools/nvm/nvm.sh
