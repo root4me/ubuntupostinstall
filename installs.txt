@@ -1,0 +1,48 @@
+
+Browser : 
+- google chrome
+
+Dev tools:
+- node / nvm / node .12
+- cloud9 Ide
+- default-jre
+- arduino ide
+- meld (diff files graphically)
+- atom + platformio for arduino programming
+- image compression : Trimage
+
+Text editor:
+- vim
+
+Productivity
+- gksudo
+- gparted
+- terminator
+- keepassx password manager
+- Truecrypt (need to check if there are any alternatives in active development)
+
+Virtualization
+- KVM virt-manager https://help.ubuntu.com/community/KVM/Installation
+- Virtualbox 
+
+Games : 
+- steam
+-- teamfortress 2
+
+Video play back
+- vlc
+
+Video editing
+- openshot
+
+screen recording and capture
+- kazam
+
+3D modeling
+- blender
+- mono 
+- RepetierHost
+- openscad
+
+
+
