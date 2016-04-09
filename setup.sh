@@ -89,6 +89,15 @@ then
 	npm install -g bower
 	npm install -g grunt-cli
 
+	source ~/devtools/nvm/nvm.sh
+	echo "== Installing version 4"
+	nvm install v4
+
+	echo "#!/bin/bash" >> ~/devtools/node4
+	echo "echo 'Initializing nodejs v4'" >> ~/devtools/node4
+	echo "source ~/devtools/nvm/nvm.sh" >> ~/devtools/node4
+	echo "nvm use v4" >>  ~/devtools/node4
+	
 fi
 
 # Prompt - Install Cloud9 IDE ?
@@ -106,7 +115,7 @@ then
 	scripts/install-sdk.sh
 	echo "#!/bin/bash" >> ~/devtools/cloud9.sh
 	echo "echo 'Launching Cloud9 IDE @ http://localhost:8181/ide.html'" >> ~/devtools/cloud9.sh
-	echo ". ~/devtools/node10.sh" >> ~/devtools/cloud9.sh
+	echo ". ~/devtools/node10.sh" >> ~/devtools/cloud10.sh
 	echo "node ~/devtools/cloud9/server.js -w ~/projects" >> ~/devtools/cloud9.sh
 fi
 
