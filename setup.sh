@@ -63,7 +63,7 @@ fi
 # Install nvm , node version .10 and .8 (most of the stuff i need work only on .8)
 # Maybe prompt which all versions to install
 echo "$(tput bold)$(tput setaf 6)------------------------------------------------"
-read -p "Install nodejs v.8 and .10, bower, grunt (y/n) : " node
+read -p "Install nodejs v.12 and 4, bower, grunt (y/n) : " node
 echo "------------------------------------------------$(tput sgr0)"
 if [[ "$node" == [Yy]* ]]
 then
@@ -77,17 +77,14 @@ then
 	echo "== Installing nvm [node version manager]"
 	git clone https://github.com/creationix/nvm.git ~/devtools/nvm
 	source ~/devtools/nvm/nvm.sh
-	echo "== Installing version .10"
-	nvm install v0.10
+	echo "== Installing version .12"
+	nvm install v0.12
 
-	echo "#!/bin/bash" >> ~/devtools/node10.sh
-	echo "echo 'Initializing nodejs v0.10'" >> ~/devtools/node10.sh
-	echo "source ~/devtools/nvm/nvm.sh" >> ~/devtools/node10.sh
-	echo "nvm use v0.10" >>  ~/devtools/node10.sh
+	echo "#!/bin/bash" >> ~/devtools/node12
+	echo "echo 'Initializing nodejs v0.12'" >> ~/devtools/node12
+	echo "source ~/devtools/nvm/nvm.sh" >> ~/devtools/node12
+	echo "nvm use v0.12" >>  ~/devtools/node12
 	
-	nvm use v0.10
-	npm install -g bower
-	npm install -g grunt-cli
 
 	source ~/devtools/nvm/nvm.sh
 	echo "== Installing version 4"
@@ -98,6 +95,9 @@ then
 	echo "source ~/devtools/nvm/nvm.sh" >> ~/devtools/node4
 	echo "nvm use v4" >>  ~/devtools/node4
 	
+	nvm use v4
+	npm install -g bower
+	npm install -g grunt-cli
 fi
 
 # Prompt - Install Cloud9 IDE ?
@@ -111,11 +111,11 @@ then
 	git clone https://github.com/c9/core.git ~/devtools/cloud9
 	cd ~/devtools/cloud9
 	. ~/devtools/nvm/nvm.sh
-	nvm use v0.10
+	nvm use v4
 	scripts/install-sdk.sh
 	echo "#!/bin/bash" >> ~/devtools/cloud9.sh
 	echo "echo 'Launching Cloud9 IDE @ http://localhost:8181/ide.html'" >> ~/devtools/cloud9.sh
-	echo ". ~/devtools/node10.sh" >> ~/devtools/cloud10.sh
+	echo ". ~/devtools/node4" >> ~/devtools/cloud9.sh
 	echo "node ~/devtools/cloud9/server.js -w ~/projects" >> ~/devtools/cloud9.sh
 fi
 
