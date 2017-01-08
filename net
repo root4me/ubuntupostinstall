@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# disable networking and enable
+
+sudo modprobe -r rtl8821ae
+sudo modprobe rtl8821ae
+

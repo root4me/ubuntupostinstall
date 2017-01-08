@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo 'Loading android-studio'
+~/devtools/android-studio/bin/studio.sh
+

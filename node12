@@ -1,0 +1,3 @@
+echo 'Initializing nodejs v0.12'
+source ~/devtools/nvm/nvm.sh
+nvm use v0.12

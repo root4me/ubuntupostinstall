@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo 'Launching screen key'
+cd ~/devtools/sk
+./screenkey
+

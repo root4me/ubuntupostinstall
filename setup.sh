@@ -100,26 +100,6 @@ then
 	npm install -g grunt-cli
 fi
 
-# Prompt - Install Cloud9 IDE ?
-echo "$(tput bold)$(tput setaf 6)--------------------------"
-read -p "Install cloud9 IDE (y/n) : " cloud9
-echo "--------------------------$(tput sgr0)"
-if [[ "$cloud9" == [Yy]* ]]
-then
-	sudo apt-get install build-essential
-	mkdir ~/devtools
-	git clone https://github.com/c9/core.git ~/devtools/cloud9
-	cd ~/devtools/cloud9
-	. ~/devtools/nvm/nvm.sh
-	nvm use v4
-	scripts/install-sdk.sh
-	echo "#!/bin/bash" >> ~/devtools/cloud9.sh
-	echo "echo 'Launching Cloud9 IDE @ http://localhost:8181/ide.html'" >> ~/devtools/cloud9.sh
-	echo ". ~/devtools/node4" >> ~/devtools/cloud9.sh
-	echo "node ~/devtools/cloud9/server.js -w ~/projects" >> ~/devtools/cloud9.sh
-fi
-
-
 # Prompt - Install Virtualbox ?
 echo "$(tput bold)$(tput setaf 6)--------------------------"
 read -p "Install virtualbox (y/n) : " virtualbox
