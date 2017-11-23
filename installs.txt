@@ -1,10 +1,9 @@
 
-Browser : 
+Browser :
 - google chrome
 
 Dev tools:
-- node / nvm / node .12
-- cloud9 Ide
+- node / nvm / node 6
 - default-jre
 - arduino ide
 - meld (diff files graphically)
@@ -23,9 +22,9 @@ Productivity
 
 Virtualization
 - KVM virt-manager https://help.ubuntu.com/community/KVM/Installation
-- Virtualbox 
+- Virtualbox
 
-Games : 
+Games :
 - steam
 -- teamfortress 2
 
@@ -38,12 +37,10 @@ Video editing
 screen recording and capture
 - kazam
 - screenkey
+- Guvcview
 
 3D modeling
 - blender
-- mono 
+- mono
 - RepetierHost
 - openscad
-
-
-

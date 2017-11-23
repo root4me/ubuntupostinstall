@@ -5,7 +5,7 @@ echo "$(tput bold)$(tput setaf 6)--------------------------"
 read -p "Install gksudo gpart (y/n) : " utils
 echo "--------------------------$(tput sgr0)"
 if [[ "$utils" == [Yy]* ]]
-then    
+then
 	sudo apt-get install gksu
 	sudo apt-get install gparted
 fi
@@ -16,7 +16,7 @@ echo "$(tput bold)$(tput setaf 6)--------------------------"
 read -p "Install terminator (y/n) : " terminator
 echo "--------------------------$(tput sgr0)"
 if [[ "$terminator" == [Yy]* ]]
-then    
+then
 	sudo apt-get install terminator
 fi
 
@@ -25,7 +25,7 @@ echo "$(tput bold)$(tput setaf 6)----------------------------------"
 read -p "Install keepassx password manager (y/n) : " keepassx
 echo "----------------------------------$(tput sgr0)"
 if [[ "$keepassx" == [Yy]* ]]
-then    
+then
 	sudo apt-get install keepassx
 fi
 
@@ -34,7 +34,7 @@ echo "$(tput bold)$(tput setaf 6)--------------------"
 read -p "Install vim (y/n) : " vim
 echo "--------------------$(tput sgr0)"
 if [[ "$vim" == [Yy]* ]]
-then    
+then
 	sudo apt-get install vim
 fi
 
@@ -43,7 +43,7 @@ echo "$(tput bold)$(tput setaf 6)--------------------------"
 read -p "Install media codecs & vlc player (y/n) : " vlc
 echo "--------------------------$(tput sgr0)"
 if [[ "$vlc" == [Yy]* ]]
-then    
+then
 	sudo apt-get install ubuntu-restricted-extras
 	sudo apt-get install vlc
 fi
@@ -53,7 +53,7 @@ echo "$(tput bold)$(tput setaf 6)--------------------------"
 read -p "Install kazam , openshot (video editing) (y/n) : " videotools
 echo "--------------------------$(tput sgr0)"
 if [[ "$videotools" == [Yy]* ]]
-then    
+then
 	sudo apt-get install kazam
 	sudo apt-get install openshot
 fi
@@ -71,7 +71,7 @@ then
 	sudo apt-get install curl git
 	mkdir ~/devtools
 
-# Set git to use https:// . Firewalls usually blocks git:// calls 	
+# Set git to use https:// . Firewalls usually blocks git:// calls
 	git config --global url."https://".insteadOf git://
 
 	echo "== Installing nvm [node version manager]"
@@ -84,7 +84,7 @@ then
 	echo "echo 'Initializing nodejs v0.12'" >> ~/devtools/node12
 	echo "source ~/devtools/nvm/nvm.sh" >> ~/devtools/node12
 	echo "nvm use v0.12" >>  ~/devtools/node12
-	
+
 
 	source ~/devtools/nvm/nvm.sh
 	echo "== Installing version 4"
@@ -94,8 +94,15 @@ then
 	echo "echo 'Initializing nodejs v4'" >> ~/devtools/node4
 	echo "source ~/devtools/nvm/nvm.sh" >> ~/devtools/node4
 	echo "nvm use v4" >>  ~/devtools/node4
-	
-	nvm use v4
+
+	echo "== Installing version 6"
+	nvm install v6
+	echo "#!/bin/bash" >> ~/devtools/node6
+	echo "echo 'Initializing nodejs v6'" >> ~/devtools/node6
+	echo "source ~/devtools/nvm/nvm.sh" >> ~/devtools/node6
+	echo "nvm use v6" >>  ~/devtools/node6
+
+	nvm use v6
 	npm install -g bower
 	npm install -g grunt-cli
 fi
@@ -107,7 +114,7 @@ echo "To use KVM as virtualization tool, follow instructions at https://help.ubu
 echo "KVM will fail to create VM if data file is in no default location. Uncomment user=root and group=root from /etc/libvirt/qemu.conf to overcome that."
 echo "--------------------------$(tput sgr0)"
 if [[ "$virtualbox" == [Yy]* ]]
-then    
+then
 	sudo sh -c "echo 'deb http://download.virtualbox.org/virtualbox/debian '$(lsb_release -cs)' contrib' > /etc/apt/sources.list.d/virtualbox.list"
      	wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
     	sudo apt-get update -y
@@ -121,8 +128,8 @@ echo "$(tput bold)$(tput setaf 6)--------------------------"
 read -p "Install Eclipse (y/n) : " eclipse
 echo "--------------------------$(tput sgr0)"
 if [[ "$eclipse" == [Yy]* ]]
-then    
-	cd ~/Downloads 
+then
+	cd ~/Downloads
 	wget http://www.mirrorservice.org/sites/download.eclipse.org/eclipseMirror/technology/epp/downloads/release/luna/SR2/eclipse-cpp-luna-SR2-linux-gtk-x86_64.tar.gz
 	tar -xzvf eclipse-cpp-luna-SR2-linux-gtk-x86_64.tar.gz
 	mv eclipse/ ~/devtools/eclipse
@@ -144,5 +151,3 @@ then
 	echo "/usr/lib/jvm/java-7-openjdk-i386/jre/bin/java"
 	echo "--------------------------$(tput sgr0)"
 fi
-
-

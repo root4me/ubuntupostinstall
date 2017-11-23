@@ -1,3 +1,0 @@
-echo 'Initializing nodejs v4'
-source ~/devtools/nvm/nvm.sh
-nvm use v4
