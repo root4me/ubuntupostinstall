@@ -18,10 +18,11 @@ Productivity
 - gparted
 - terminator
 - keepassx password manager
-- Truecrypt (need to check if there are any alternatives in active development)
+- Truecrypt
+- Veracrypt
 
 Virtualization
-- KVM virt-manager https://help.ubuntu.com/community/KVM/Installation
+- KVM virt-manager
 - Virtualbox
 
 Games :
